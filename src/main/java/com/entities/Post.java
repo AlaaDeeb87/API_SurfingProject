@@ -14,8 +14,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
-@Table(name = "Weather")
-public class Weather {
+@Table(name = "Post")
+public class Post {
 
     @JsonIgnore
     @Id
@@ -31,12 +31,12 @@ public class Weather {
     @JoinColumn(name = "user_id")
     private User user;
 
-	public Weather() {
+	public Post() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Weather(Long id, String name, User user) {
+	public Post(Long id, String name, User user) {
 		super();
 		this.id = id;
 		this.name = name;

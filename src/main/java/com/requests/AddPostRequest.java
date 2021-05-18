@@ -2,7 +2,7 @@ package com.requests;
 
 import javax.validation.constraints.NotBlank;
 
-public class AddWeatherRequest {
+public class AddPostRequest {
     
     @NotBlank(message = "Name is mandatory")
     private String name;
@@ -15,7 +15,7 @@ public class AddWeatherRequest {
 		this.name = name;
 	}
 
-	public AddWeatherRequest() {
+	public AddPostRequest() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

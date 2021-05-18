@@ -15,11 +15,12 @@ import javax.persistence.OneToMany;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 
 @ApiModel(description = "Add new user request model")
 
-
+@Data
 @Entity
 @Table(name = "User")
 public class User {
@@ -52,7 +53,7 @@ public class User {
 	private Beach beach;
 
 	@OneToMany(mappedBy = "user")
-	private List<Weather> weathers;
+	private List<Post> posts;
 
 	public Long getId() {
 		return id;
@@ -102,16 +103,16 @@ public class User {
 		this.beach = beach;
 	}
 
-	public List<Weather> getWeathers() {
-		return weathers;
+	public List<Post> getPosts() {
+		return posts;
 	}
 
-	public void setWeathers(List<Weather> weathers) {
-		this.weathers = weathers;
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
 	}
 
 	public User(Long id, String firstName, String lastName, Date createdAt, Date updatedAt, Beach beach,
-			List<Weather> weathers) {
+			List<Post> posts) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -119,7 +120,7 @@ public class User {
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 		this.beach = beach;
-		this.weathers = weathers;
+		this.posts = posts;
 	}
 
 	public User() {

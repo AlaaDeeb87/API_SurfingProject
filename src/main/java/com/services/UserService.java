@@ -16,12 +16,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import com.entities.Beach;
-import com.entities.Weather;
+import com.entities.Post;
 import com.entities.User;
 import com.repositories.BeachSqlRepository;
-import com.repositories.WeatherSqlRepository;
+import com.repositories.PostSqlRepository;
 import com.repositories.UserSqlRepository;
-import com.requests.AddWeatherRequest;
+import com.requests.AddPostRequest;
 import com.requests.AddUserRequest;
 import com.requests.UpdateUserRequest;
 
@@ -38,7 +38,7 @@ public class UserService {
 	
 	private  UserSqlRepository UserRepo;
 	private  BeachSqlRepository BeachRepo;
-	private  WeatherSqlRepository WeatherRepo;
+	private  PostSqlRepository PostRepo;
 
 	public Collection<User> getAll() {
 		Sort sort = Sort.by(Sort.Direction.ASC, "firstName");
@@ -71,16 +71,16 @@ public class UserService {
 		user.setBeach(beach);
 		user = UserRepo.save(user);
 
-		if (request.getWeathers().size() > 0) {
-			var weathers = new ArrayList<Weather>();
-			for (AddWeatherRequest weather : request.getWeathers()) {
-				var newWeather = new Weather();
-				newWeather.setName(weather.getName() != null ? weather.getName() : "NoName!");
-				newWeather.setUser(user);
-				weathers.add(newWeather);
+		if (request.getPosts().size() > 0) {
+			var posts = new ArrayList<Post>();
+			for (AddPostRequest post : request.getPosts()) {
+				var newPost = new Post();
+				newPost.setName(post.getName() != null ? post.getName() : "NoName!");
+				newPost.setUser(user);
+				posts.add(newPost);
 			}
-			WeatherRepo.saveAll(weathers);
-			user.setWeathers(weathers);
+			PostRepo.saveAll(posts);
+			user.setPosts(posts);
 		}		
 
 		logger.info("Successfully created new User");

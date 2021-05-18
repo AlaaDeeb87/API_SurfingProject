@@ -25,7 +25,7 @@ public class AddUserRequest {
 	private String location;
 	private String beachName;
 
-	private List<AddWeatherRequest> weathers;
+	private List<AddPostRequest> posts;
 
 	public String getFirstName() {
 		return firstName;
@@ -59,12 +59,12 @@ public class AddUserRequest {
 		this.beachName = beachName;
 	}
 
-	public List<AddWeatherRequest> getWeathers() {
-		return weathers;
+	public List<AddPostRequest> getPosts() {
+		return posts;
 	}
 
-	public void setCourses(List<AddWeatherRequest> weathers) {
-		this.weathers = weathers;
+	public void setPosts(List<AddPostRequest> posts) {
+		this.posts = posts;
 	}
 
 	public AddUserRequest() {
@@ -72,9 +72,5 @@ public class AddUserRequest {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void setWeathers(ArrayList<AddWeatherRequest> arrayList) {
-		// TODO Auto-generated method stub
-		
-	}
 }
 	

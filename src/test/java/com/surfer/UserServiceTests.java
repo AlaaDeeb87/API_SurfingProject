@@ -14,9 +14,9 @@ import java.util.Optional;
 import com.entities.Beach;
 import com.entities.User;
 import com.repositories.BeachSqlRepository;
-import com.repositories.WeatherSqlRepository;
+import com.repositories.PostSqlRepository;
 import com.repositories.UserSqlRepository;
-import com.requests.AddWeatherRequest;
+import com.requests.AddPostRequest;
 import com.requests.AddUserRequest;
 import com.requests.UpdateUserRequest;
 import com.services.UserService;
@@ -31,14 +31,14 @@ public class UserServiceTests {
 
     private  UserSqlRepository userRepo;
     private  BeachSqlRepository beachRepo;
-    private  WeatherSqlRepository weatherRepo;
+    private  PostSqlRepository postRepo;
 
 
     @BeforeEach
     void initTests(){
         this.userRepo = Mockito.mock(UserSqlRepository.class);
         this.beachRepo = Mockito.mock(BeachSqlRepository.class);
-        this.weatherRepo = Mockito.mock(WeatherSqlRepository.class);
+        this.postRepo = Mockito.mock(PostSqlRepository.class);
 
         this.sut = new UserService();
     }
@@ -78,7 +78,7 @@ public class UserServiceTests {
         addRequest.setLastName("Testersson");
         addRequest.setLocation("HappyCity");
         addRequest.setBeachName("HappyStreet");
-        addRequest.setWeathers(new ArrayList<AddWeatherRequest>());
+        addRequest.setPosts(new ArrayList<AddPostRequest>());
 
         // ACT
         var result = sut.addUser(addRequest);
