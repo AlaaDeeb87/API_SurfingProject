@@ -15,14 +15,13 @@ import javax.persistence.OneToMany;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+
 
 
 @ApiModel(description = "Add new user request model")
 
-@Data
 @Entity
-@Table(name = "User")
+@Table(name = "Api_user")
 public class User {
 
 

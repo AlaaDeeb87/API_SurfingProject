@@ -40,7 +40,7 @@ public class UserServiceTests {
         this.beachRepo = Mockito.mock(BeachSqlRepository.class);
         this.postRepo = Mockito.mock(PostSqlRepository.class);
 
-        this.sut = new UserService();
+        this.sut = new UserService(userRepo, beachRepo , postRepo);
     }
 
     @Test

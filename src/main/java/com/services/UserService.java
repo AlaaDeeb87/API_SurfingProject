@@ -6,7 +6,7 @@ import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -34,11 +34,10 @@ public class UserService {
 	
 
 	Logger logger = LoggerFactory.getLogger(UserService.class);
-	@Autowired
 	
-	private  UserSqlRepository UserRepo;
-	private  BeachSqlRepository BeachRepo;
-	private  PostSqlRepository PostRepo;
+	private final  UserSqlRepository UserRepo;
+	private final BeachSqlRepository BeachRepo;
+	private final  PostSqlRepository PostRepo;
 
 	public Collection<User> getAll() {
 		Sort sort = Sort.by(Sort.Direction.ASC, "firstName");
